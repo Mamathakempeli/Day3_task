@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+let obj1={name:"person 1",age:5}
+let obj2={age:5,name:"person 1"}
+
+if(JSON.stringify(obj1)===JSON.stringify(obj2))
+{
+    console.log("same")
+}
+else
+{
+    console.log("Not same")
+}
+
+ var request=new XMLHttpRequest()
+        console.log(request)
+    
+        request.open("GET","https://restcountries.com/v2/all")
+        request.send()
+       
+        request.onload=function(){
+           
+            var data=JSON.parse(request.response)
+
+            for(var value of data){
+                console.log(value.name)
+            }
+
+            for(var i=0;i<data.length;i++){
+               console.log(data[i].name, data[i].region, data[i].subregion, data[i].population)
+            }
+        }
+    </script>
+</body>
+</html>
